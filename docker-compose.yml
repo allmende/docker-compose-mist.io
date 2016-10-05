@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  mist:
+    image: mist/mistio
+    ports: ["8000:8000"]
+    networks: ["frontend"]
+    environment:
+      VIRTUAL_HOST: 'mist.allmende.io'
+      VIRTUAL_PORT: '8000'
+      LETSENCRYPT_HOST: 'mist.allmende.io'
+      LETSENCRYPT_EMAIL: 'almereyda@allmende.io'
+
+
+networks:
+  frontend:
+    external:
+      name: nginx_default
+
